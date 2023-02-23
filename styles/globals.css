@@ -1,0 +1,38 @@
+main {
+  padding: 64px 20px 50px 20px;
+}
+
+#copy-board {
+  display: none;
+}
+
+div.fab-buttons {
+  position: fixed;
+  right: 23px;
+  bottom: 23px;
+  text-align: center;
+}
+
+footer {
+  text-align: center;
+}
+
+pre {
+  background-color: #d5e8e7;
+  border: 1px gray dotted;
+  border-radius: 5px;
+  padding: 10px 10px 10px 10px;
+}
+
+.markdown {
+  overflow-x: scroll;
+}
+
+.markdown table {
+  border-collapse: collapse;
+}
+
+.markdown table td, .markdown table th {
+  border: gray 1px solid;
+  padding: 5px;
+}

@@ -1,0 +1,12 @@
+.title {
+  text-align: center;
+  margin: 0;
+  line-height: 1.15;
+  font-size: 4rem;
+  border: none;
+}
+
+.title a {
+  color: #f36100;
+  text-decoration: none;
+}
