@@ -44,22 +44,4 @@ export default async function handler(
     })
     return
   }
-
-  if (
-    process.env.loginId == Util.sha256(req.body['id']) &&
-    process.env.loginPassword == Util.sha256(req.body['password'])
-  ) {
-    const token = Util.token()
-    const session = new Session(req, res)
-    session.set('token', token)
-    res.status(200).json({
-      authenticated: true,
-      token: token
-    });
-  } else {
-    res.status(200).json({
-      authenticated: false,
-      message: 'Wrong ID or Password.'
-    });
-  }
 }
