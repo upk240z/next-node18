@@ -43,6 +43,7 @@
     "@types/uuid": "^9.0.1",
     "@zxing/browser": "^0.1.1",
     "@zxing/library": "^0.19.2",
-    "qrcode": "^1.5.1"
+    "qrcode": "^1.5.1",
+    "sass": "^1.58.3"
   }
 }

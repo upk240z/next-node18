@@ -116,9 +116,9 @@ const Page: NextPage = () => {
     }
   })
 
-  const DocListItem = ({href, children}: {href: string, children: JSX.Element[]}) => {
+  const DocListItem = ({href, children, className}: {href: string, children: JSX.Element[], className: string}) => {
     return (
-      <ListItem component={Link} href={href} sx={{borderBottom: '1px gray solid'}}>
+      <ListItem component={Link} href={href} sx={{borderBottom: '1px gray solid'}} className={className}>
         <Box sx={{display: 'flex', gap: 1, width: '100%'}}>
           { children }
         </Box>
@@ -128,7 +128,7 @@ const Page: NextPage = () => {
 
   const folderElems = folders.map((folder: Folder, index: number) => {
     return (
-      <DocListItem key={index} href={`/docs/${folder.id}`}>
+      <DocListItem key={index} href={`/docs/${folder.id}`} className="folder">
         <Box className="material-icons">folder</Box>
         <Box>{folder.folder_name}</Box>
       </DocListItem>
@@ -137,7 +137,7 @@ const Page: NextPage = () => {
 
   const docElems = docs.map((doc: Doc, index: number) => {
     return (
-      <DocListItem key={index} href={`/docs/${doc.folder_id}/${doc.id}`}>
+      <DocListItem key={index} href={`/docs/${doc.folder_id}/${doc.id}`} className="doc">
         <Box className="material-icons">description</Box>
         <Box>{doc.title}</Box>
         <Box sx={{ flex: '1 0 100px', textAlign: 'right' }}>
@@ -149,14 +149,14 @@ const Page: NextPage = () => {
 
   const foldersElement = (
     <div>
-      <Box sx={{display: 'flex', gap: 1}}>
-        <Link href="/docs/00000">Top</Link>
+      <Box sx={{display: 'flex', gap: 1}} className="breadcrumb">
+        <Box component={Link} href="/docs/00000">Top</Box>
         <span>&gt;</span>
         { levelElems }
         <span onClick={handleClickAddFolder}>[+]</span>
       </Box>
 
-      <List>
+      <List className="memo-titles">
         {folderElems}
         {docElems}
       </List>

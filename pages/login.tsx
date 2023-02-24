@@ -8,6 +8,7 @@ import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
 import Card from '@mui/material/Card'
 import CardContent from '@mui/material/CardContent'
+import Grid from '@mui/material/Grid'
 import TextField from '@mui/material/TextField'
 
 import Footer from "../layouts/footer"
@@ -50,24 +51,28 @@ const Page: NextPage = () => {
         <form onSubmit={handleSubmit}>
           <Card>
             <CardContent>
-              <Box sx={{display: 'flex', flexDirection: 'row', gap: 3}}>
-                <TextField
-                  name="email"
-                  label="Mail"
-                  type="text"
-                  required={true}
-                  defaultValue=""
-                  fullWidth
-                />
-                <TextField
-                  name="password"
-                  label="Password"
-                  type="password"
-                  required={true}
-                  defaultValue=""
-                  fullWidth
-                />
-              </Box>
+              <Grid container spacing={3}>
+                <Grid item xs={12} md={6}>
+                  <TextField
+                    name="email"
+                    label="Mail"
+                    type="text"
+                    required={true}
+                    defaultValue=""
+                    fullWidth
+                  />
+                </Grid>
+                <Grid item xs={12} md={6}>
+                  <TextField
+                    name="password"
+                    label="Password"
+                    type="password"
+                    required={true}
+                    defaultValue=""
+                    fullWidth
+                  />
+                </Grid>
+              </Grid>
               <Box sx={{mt: 3}}>
                 <Button type="submit" variant="contained" fullWidth>Login</Button>
               </Box>

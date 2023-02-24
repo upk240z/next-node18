@@ -2,6 +2,29 @@ main {
   padding: 64px 20px 50px 20px;
 }
 
+.memo-titles {
+  a, a:visited {
+    color: darkgreen;
+  }
+  .folder {
+    background-color: #f1b496;
+    color: darkred;
+    &:visited {
+      color: darkred;
+    }
+  }
+}
+
+.breadcrumb {
+  background-color: lightseagreen;
+  padding: 5px 0 5px 10px;
+  color: white;
+  a, a:visited {
+    color: white;
+    text-decoration: none;
+  }
+}
+
 #copy-board {
   display: none;
 }

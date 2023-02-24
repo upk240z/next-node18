@@ -32,7 +32,7 @@ const Breadcrumb = ({folderId}: any) => {
   }
 
   return (
-    <Box sx={{display: 'flex', gap: 1}}>
+    <Box sx={{display: 'flex', gap: 1}} className="breadcrumb">
       <Link href="/docs/00000">Top</Link>
       <span>&gt;</span>
       { levelElements }
