@@ -46,7 +46,7 @@ const Page: NextPage = ({postId}: any) => {
   })
 
   return (
-    <div className="container">
+    <div>
       <Head>
         <title>Post</title>
       </Head>

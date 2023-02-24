@@ -22,22 +22,6 @@ import Breadcrumb from "../../../components/breadcrumb"
 import DocReader, {Doc} from "../../../lib/doc-reader"
 import FirebaseAuth from '../../../lib/firebase-auth'
 
-export function getStaticPaths() {
-  return {
-    paths: [],
-    fallback: true,
-  }
-}
-
-export function getStaticProps({params}: any) {
-  return {
-    props: {
-      docId: params.docId
-    },
-    revalidate: 60
-  }
-}
-
 const initialDoc = {
   id: '',
   folder_id: '',
@@ -47,13 +31,15 @@ const initialDoc = {
   updated_at: 0
 }
 
-const Page: NextPage = ({docId}: any) => {
+const Page: NextPage = () => {
   const router = useRouter()
   const [message, setMessage] = useState<string | null>(null)
   const [doc, setDoc] = useState<Doc>(initialDoc)
   const [mode, setMode] = useState<string>('read')
   const titleRef = useRef(null)
   const bodyRef = useRef(null)
+
+  const docId = router.query.docId as string
 
   const docReader = new DocReader()
   const fa = new FirebaseAuth()

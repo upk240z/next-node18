@@ -28,23 +28,7 @@ import Message from "../../components/message"
 import Footer from "../../layouts/footer"
 import FirebaseAuth from '../../lib/firebase-auth'
 
-export function getStaticPaths() {
-  return {
-    paths: [],
-    fallback: true,
-  }
-}
-
-export function getStaticProps({params}: any) {
-  return {
-    props: {
-      folderId: params.folderId
-    },
-    revalidate: 60
-  }
-}
-
-const Page: NextPage = ({folderId}: any) => {
+const Page: NextPage = () => {
   const router = useRouter()
   const docReader = new DocReader()
   const fa = new FirebaseAuth()
@@ -56,6 +40,8 @@ const Page: NextPage = ({folderId}: any) => {
   const [loaded, setLoaded] = useState<boolean>(false)
   const [dialogOpened, setDialogOpen] = useState<boolean>(false)
   const folderNameRef = useRef(null)
+
+  const folderId = router.query.folderId as string
 
   const readAll = async () => {
     if (folderId == undefined) { return }
