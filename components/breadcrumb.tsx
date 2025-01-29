@@ -21,9 +21,12 @@ const Breadcrumb = ({folderId}: any) => {
 
   const levelElements = levels.map((folder, index) => {
     return (
-      <Link key={index} href={`/docs/${folder.id}`}>
-        { folder.folder_name }
-      </Link>
+      <React.Fragment key={index}>
+        <span>&gt;</span>
+        <Link href={`/docs/${folder.id}`}>
+          {folder.folder_name}
+        </Link>
+      </React.Fragment>
     )
   })
 
@@ -34,7 +37,6 @@ const Breadcrumb = ({folderId}: any) => {
   return (
     <Box sx={{display: 'flex', gap: 1}} className="breadcrumb">
       <Link href="/docs/00000">Top</Link>
-      <span>&gt;</span>
       { levelElements }
     </Box>
   )
